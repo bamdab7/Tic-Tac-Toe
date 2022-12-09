@@ -7,26 +7,23 @@
 <?import javafx.scene.text.Text?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <FlowPane layoutX="200.0" layoutY="101.0" prefHeight="174.0" prefWidth="168.0">
-         <children>
-            <Button mnemonicParsing="false" prefHeight="57.0" prefWidth="56.0" />
-            <Button mnemonicParsing="false" prefHeight="57.0" prefWidth="56.0" />
-            <Button mnemonicParsing="false" prefHeight="57.0" prefWidth="56.0" />
-            <Button mnemonicParsing="false" prefHeight="57.0" prefWidth="56.0" />
-            <Button mnemonicParsing="false" prefHeight="57.0" prefWidth="56.0" />
-            <Button mnemonicParsing="false" prefHeight="57.0" prefWidth="56.0" />
-            <Button mnemonicParsing="false" prefHeight="57.0" prefWidth="56.0" />
-            <Button mnemonicParsing="false" prefHeight="57.0" prefWidth="56.0" />
-            <Button mnemonicParsing="false" prefHeight="57.0" prefWidth="56.0" />
-         </children>
-      </FlowPane>
-      <Text layoutX="166.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tic - Tac -Toe">
-         <font>
-            <Font name="Bell MT" size="39.0" />
-         </font>
-      </Text>
-      <Button layoutX="258.0" layoutY="317.0" mnemonicParsing="false" text="Reiniciar" />
-   </children>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+            prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tiktaktoe.TikTakToeController">
+   <FlowPane layoutX="200.0" layoutY="101.0" prefHeight="174.0" prefWidth="168.0">
+      <Button mnemonicParsing="false" prefHeight="57.0" prefWidth="56.0" fx:id="button1"/>
+      <Button mnemonicParsing="false" prefHeight="57.0" prefWidth="56.0" fx:id="button2"/>
+      <Button mnemonicParsing="false" prefHeight="57.0" prefWidth="56.0" fx:id="button3"/>
+      <Button mnemonicParsing="false" prefHeight="57.0" prefWidth="56.0" fx:id="button4"/>
+      <Button mnemonicParsing="false" prefHeight="57.0" prefWidth="56.0" fx:id="button5"/>
+      <Button mnemonicParsing="false" prefHeight="57.0" prefWidth="56.0" fx:id="button6"/>
+      <Button mnemonicParsing="false" prefHeight="57.0" prefWidth="56.0" fx:id="button7"/>
+      <Button mnemonicParsing="false" prefHeight="57.0" prefWidth="56.0" fx:id="button8"/>
+      <Button mnemonicParsing="false" prefHeight="57.0" prefWidth="56.0" fx:id="button9"/>
+   </FlowPane>
+   <Text layoutX="166.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tic - Tac - Toe" fx:id="winnerText">
+      <font>
+         <Font name="Bell MT" size="39.0"/>
+      </font>
+   </Text>
+   <Button layoutX="258.0" layoutY="317.0" mnemonicParsing="false" text="Reiniciar" onAction="#restartGame"/>
 </AnchorPane>
