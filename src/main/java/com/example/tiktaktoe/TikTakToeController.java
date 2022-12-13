@@ -50,7 +50,39 @@ public class TikTakToeController implements Initializable {
         button.setOnMouseClicked(mouseEvent -> {
             //Cuando clicamos el boton, cambiamos el simbolo del jugador X o 0
             cambiarJugador(button);
+            //Desabilitaremos el boton para no cliclar +
+            button.setDisable(true);
+            //Comprobar si se gana
+            comprobarGanador();
         });
+    }
+
+    private void comprobarGanador() {
+        //Comprueba linea a linea, en las direcciones del tablero si los valores son iguales
+        for(int i = 0; i < 8; i++ ){
+            String linea = switch (i){
+                //Comprobaciones horizontales
+                case 0 -> button1.getText() + button2.getText() + button3.getText();
+                case 1 -> button4.getText() + button5.getText() + button6.getText();
+                case 2 -> button7.getText() + button8.getText() + button9.getText();
+                //Comprobaciones diagonales
+                case 3 -> button1.getText() + button5.getText() + button9.getText();
+                case 4 -> button3.getText() + button5.getText() + button7.getText();
+                //Comprobaciones verticales
+                case 5 -> button1.getText() + button4.getText() + button7.getText();
+                case 6 -> button2.getText() + button5.getText() + button8.getText();
+                case 7 -> button3.getText() + button6.getText() + button9.getText();
+                //Ora opcion
+                default -> null;
+            };
+            //En el caso de que gane aguien, mostrarlo por pantalla y parar el programa
+            if(linea.equals("XXX")){ //Si la linea que se forma es de 3X juntas
+                winnerText.setText("Jugador 1 (X) gana");
+            }
+            if(linea.equals("000")){
+                winnerText.setText("Jugador 2 (0) gana");
+            }
+        }
     }
 
     private void cambiarJugador(Button button) {
