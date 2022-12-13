@@ -98,7 +98,15 @@ public class TikTakToeController implements Initializable {
     }
 
     public void restartGame(ActionEvent actionEvent) {
-        
+        //Este es el boton que hay en la interfaz y llama al reseteo en cada uno de los botones
+        botones.forEach(this::resetButton);
+        winnerText.setText("Tic - Tac - Toe");
+    }
+
+    private void resetButton(Button button) {
+        //Esto lo que hace es volver a la normalidad las cosas
+        button.setDisable(true);
+        button.setText(" ");
     }
 
 
