@@ -7,10 +7,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.text.Text;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.ResourceBundle;
+import java.util.logging.Logger;
 
 public class TikTakToeController implements Initializable {
 
@@ -53,11 +55,15 @@ public class TikTakToeController implements Initializable {
             //Desabilitaremos el boton para no cliclar +
             button.setDisable(true);
             //Comprobar si se gana
-            comprobarGanador();
+            try {
+                comprobarGanador();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         });
     }
 
-    private void comprobarGanador() {
+    private void comprobarGanador() throws IOException {
         //Comprueba linea a linea, en las direcciones del tablero si los valores son iguales
         for(int i = 0; i < 8; i++ ){
             String linea = switch (i){
@@ -78,9 +84,11 @@ public class TikTakToeController implements Initializable {
             //En el caso de que gane aguien, mostrarlo por pantalla y parar el programa
             if(linea.equals("XXX")){ //Si la linea que se forma es de 3X juntas
                 winnerText.setText("Jugador 1 (X) gana");
+                LoggerUtil.log("Jugador 1 gana");
             }
             if(linea.equals("000")){
                 winnerText.setText("Jugador 2 (0) gana");
+                LoggerUtil.log("Jugador 2 gana");
             }
         }
     }
@@ -97,10 +105,11 @@ public class TikTakToeController implements Initializable {
         }
     }
 
-    public void restartGame(ActionEvent actionEvent) {
+    public void restartGame(ActionEvent actionEvent) throws IOException {
         //Este es el boton que hay en la interfaz y llama al reseteo en cada uno de los botones
         botones.forEach(this::resetButton);
         winnerText.setText("Tic - Tac - Toe");
+        LoggerUtil.log("Se empezo de nuevo el juego");
     }
 
     private void resetButton(Button button) {
